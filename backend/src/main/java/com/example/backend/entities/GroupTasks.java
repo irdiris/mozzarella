@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
-@Entity
-@Table(schema = "mozzarella", name = "team_tasks")
-@Data
 
-public class Team_tasks {
+@Data
+@Table(name = "group_tasks", schema = "mozzarella")
+@Entity
+public class GroupTasks {
     @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
     private String name;
     private String description;
@@ -18,8 +19,10 @@ public class Team_tasks {
     @Temporal(TemporalType.DATE)
     private LocalDate deadline;
     @ManyToOne()
-    @JoinColumn(name = "team", foreignKey = @ForeignKey(name = "fk_group"))
-    private Teams team;
+    @JoinColumn(name = "group", foreignKey = @ForeignKey(name = "fk_group"))
+    private Group group;
+
+
 
 
 }

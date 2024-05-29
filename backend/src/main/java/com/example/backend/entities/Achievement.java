@@ -1,9 +1,6 @@
 package com.example.backend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -11,8 +8,9 @@ import java.util.List;
 @Entity
 @Table(schema = "mozzarella", name = "achievements")
 @Data
-public class Achievements {
+public class Achievement {
     @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
     private String description;
     private String name;

@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 public class Group {
     @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
@@ -20,5 +21,5 @@ public class Group {
     @ManyToMany
     private List<User> members;
     @OneToMany( mappedBy = "group")
-    private List<Group_tasks> group_tasks;
+    private List<GroupTasks> group_tasks;
 }

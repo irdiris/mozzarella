@@ -38,9 +38,9 @@ public class User {
             schema = "mozzarella",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "achievement_id"))
-    private List<Achievements> achievements;
+    private List<Achievement> achievements;
 
     @ManyToOne
     @JoinColumn(name = "team", foreignKey = @ForeignKey(name = "fk_team"))
-    private Teams team;
+    private Team team;
 }

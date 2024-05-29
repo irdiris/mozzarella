@@ -8,9 +8,10 @@ import java.util.List;
 @Entity
 @Table(schema = "mozzarella", name = "teams")
 @Data
-public class Teams {
+public class Team {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
@@ -21,6 +22,6 @@ public class Teams {
     @OneToMany(mappedBy="team")
     private List<User> members;
     @OneToMany (mappedBy = "team")
-    private List<Team_tasks> team_tasks;
+    private List<TeamTasks> team_tasks;
 
 }
